@@ -1,0 +1,70 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Buy</th>
+                <th>Sell</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in list %}
+            <tr>
+                <td><h6>{{i.symbol}}</h6></td>
+                <td>{{i.name}}</td>
+                <td>{{i.share}}</td>
+                <td>
+                <form action="/buy" method="post">
+                <div class="mb-3">
+                    <input autocomplete="off" name="shares" placeholder="Number of stocks to buy" type="text">
+                </div>
+                <input hidden name="symbol" value = {{i.symbol}}>
+                <button class="btn btn-primary" type="submit">Buy</button>
+                </form>
+                </td>
+                <td>
+                    <form action="/sell" method="post">
+                        <div class="mb-3">
+                            <input name="shares" autocomplete="off" placeholder="Number of stocks to sell" type="text">
+                        </div>
+                        <input hidden name="symbol" value = {{i.symbol}}>
+                        <button class="btn btn-primary" type="submit">Sell</button>
+                        </form>
+                </td>
+                <td>{{i.price|float|usd}}</td>
+                <td>{{i.total|usd}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><h6>Cash</h6></td>
+                <td>{{cash}}</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><h6>Total</h6></td>
+                <td>{{total}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

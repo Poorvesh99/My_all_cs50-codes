@@ -1,0 +1,35 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in list %}
+                <tr>
+                    <td><h6>{{transaction.stock}}</h6></td>
+                    {% if transaction.status == "sell" %}
+                        <td>-{{transaction.share}}</td>
+                    {% else %}
+                        <td>{{transaction.share}}</td>
+                    {% endif %}
+                    <td>{{transaction.price}}</td>
+                    <td>{{transaction.date}}</td>
+                    <td>{{transaction.time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}

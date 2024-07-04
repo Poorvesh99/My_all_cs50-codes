@@ -1,0 +1,9 @@
+
+
+I would check the aura of particular person by averaging each of the column and then
+compare each of the averages by  finding the percentage of each part in comparison to all those averages as whole.
+here danceability will show positive mood, energy will represent need of energy boost, valence will positiveness conveyed,
+tempo will be compared with other states to validate their mood ,  e.g. more slow paced there is more chance of person being emotional and etc.
+
+This is the way I am proposing but it won't be the best way as it's hard to point out peoples mood by only this much data
+and also people may be using same account for part and  other various purposes , we have account for such situations.

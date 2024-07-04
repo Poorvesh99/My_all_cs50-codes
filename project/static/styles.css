@@ -1,0 +1,144 @@
+body{
+    background-color:#3D3B40;
+    color:white;
+    
+}
+.navbar{
+    display:flex;
+    justify-content:center;
+    background-color:#525CEB;
+    height:15%;
+    padding:10px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom:1px solid black;
+
+}
+
+.nav-item{
+    border:1px solid #F8EDFF;
+    background-color:#F0EBCC;
+    padding:10px;
+    margin:5px;
+    height:auto;
+    width:auto;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    border-bottom-left-radius:30px;
+    border-bottom-right-radius:30px;
+}
+
+#matches_container{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    height:100%;
+    flex-direction:row;
+
+}
+
+.grid-container{
+    display: grid;
+    grid-auto-rows:minmax(150px,auto);
+    border:1px solid grey;
+    border-radius:3px;
+    height:auto;
+    min-width:40%;
+    background-color:#445069;
+}
+
+.football-match-item{
+    display:flex;
+    width:100%;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    border-top:1px solid grey;
+    padding:10px;
+
+}
+.football-team{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+}
+.football-match-header{
+    justify-self:flex-start;
+}
+
+.cricket-match-item{
+    display:flex;
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    border-top:1px solid grey;
+}
+.cricket-team{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.cricket-match-header{
+    justify-self:flex-start;
+}
+
+
+.name{
+    display:flex;
+    flex-direction:column;
+}
+
+.tennis-team{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-items:center;
+    align-content:space-around;
+    width:auto;
+    border:1px solid black;
+    justify-content:center;
+
+}
+.tennis-name{
+    display:flex;
+    flex-direction:column;
+}
+
+.tennis-session-score{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+    min-width:50%;
+    width:auto;
+}
+
+.tennis-score{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    min-width:15%;
+    width:auto;
+}
+.live{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-content:space-around;
+    flex-wrap:wrap;
+    align-items:center;
+    background-color:#525CEB;
+    border-bottom:1px solid black;
+    padding:3px;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}

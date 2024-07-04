@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: time required to sort sorted numbers is too low in comparison of reversed or random numbers.
+
+sort2 uses: merge sort
+
+How do you know?: sorting time too low in comparison of other two sort.
+
+sort3 uses: selection sort
+
+How do you know?: It's taking relativly more time in all the cases which is just like selction sort as it had to go through every element in every condition.

@@ -1,0 +1,71 @@
+
+{%extends "layout.html" %}
+{% block title %}Cricket{% endblock %}
+{% block body%}
+<div class="live">
+    <button class="btn btn-primary" type="button" style="background-color:#F0EBCC;color:black;border:1px solid #F8EDFF;" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      {{date}}
+    </button>
+  <div style="height:auto">
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <div class="card card-body centered" style="width:300px;border:none;background-color:#525CEB;align-items:center;">
+        <form class="text-center">
+            <form action="/cricket" method="post">
+                <input hidden name="game" value = "hockey">
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="date" name="date" style="background-color:#F0EBCC;color:black;border:1px solid #F8EDFF;align-self:center" placeholder="Date" type="date">
+                </div>
+                <div class="date_form">
+                    <button class="btn btn-primary mx-auto w-auto" style = "background-color:#F0EBCC;color:black;border:1px solid #F8EDFF;" type="submit">Search</button>
+                </div>
+            </form>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div id = 'matches_container'>
+    <div class="grid-container">
+        {% if live  %}
+            {% for Stages in key %}
+                <div class = "cricket-match-item">
+                    <div class = "cricket-match-header">
+                        {{Stages.Snm}}: {{Stages.Events[0].EtTx}}
+                        <p style="text-align:center">{{Stages.Events[0].ErnInf}}</p>
+                    </div>
+                    {% if Stages.Events[0].EtTx == "Test" or Stages.Events[0].EtTx == "Non Official Test"%}
+                        <div class="cricket-team">
+                            <div class="name" style="display:flex;width:38%;text-align:center;align-items:center;margin-right:10px;">{{Stages.Events[0].T1[0].Nm}}</div> <div style="display:block;width:10%;">{% if Stages.Events[0].Tr1C1 %}{{Stages.Events[0].Tr1C1}}/{{Stages.Events[0].Tr1CW1}}{% else %} Yet To Bat {% endif %} <br>{% if Stages.Events[0].Tr1C2 %}{{Stages.Events[0].Tr1C2}}/{{Stages.Events[0].Tr1CW2}}{% else %} Yet To Bat {% endif %}</div>
+                            <span style = "margin:25px"><h2>-</h2></span>
+                                <div style="display:inline-block;width:10%;align-self:center">{% if Stages.Events[0].Tr2C1 %}{{Stages.Events[0].Tr2C1}}/{{Stages.Events[0].Tr2CW1}}{% else %} Yet To Bat {% endif %}<br>{% if Stages.Events[0].Tr2C2 %}{{Stages.Events[0].Tr2C2}}/{{Stages.Events[0].Tr2CW2}}{% else %} Yet To Bat {% endif %}</div><div class="name" style="display:flex;width:38%;text-align:center;align-items:center;margin-left:10px;">{{Stages.Events[0].T2[0].Nm}}</div>
+                        </div>
+                    {% else %}
+                        <div class="cricket-team">
+                            <div class="name" style="display:flex;width:38%;text-align:center;align-items:center;margin-right:10px;">{{Stages.Events[0].T1[0].Nm}}</div> <div style="display:block;width:10%;">{% if Stages.Events[0].Tr1C1 %}{{Stages.Events[0].Tr1C1}}/{{Stages.Events[0].Tr1CW1}}{% else %} Yet To Bat {% endif %} </div>
+                            <span style = "margin:25px"><h2>-</h2></span>
+                            <div style="display:inline-block;width:10%;align-self:center">{% if Stages.Events[0].Tr2C1 %}{{Stages.Events[0].Tr2C1}}/{{Stages.Events[0].Tr2CW1}}{% else %} Yet To Bat {% endif %}</div><div class="name" style="display:flex;width:38%;text-align:center;align-items:center;margin-left:10px;">{{Stages.Events[0].T2[0].Nm}}</div>
+                        </div>
+                    {% endif %}
+                    <div class="cricket-status">
+                        {{Stages.Events[0].ECo}}
+                        <p style="text-align:center">{{Stages.Events[0].EpsL}}</p>
+                    </div>
+
+
+                </div>
+
+            {% endfor %}
+        {% else %}
+            <div style="justify-self:center;align-self:center;">
+                {% if date == "Live" %}
+                    There are no Live matches
+                {% else %}
+                    There are no matches on {{date}}
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

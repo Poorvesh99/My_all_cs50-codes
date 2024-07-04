@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            //continue from here
+            function changeColor(event)
+            {
+                var item = event.srcElement;
+                document.getElementById('div').innerHTML ='Incorrect';
+                item.style.backgroundColor = 'red';
+            }
+            function changeColorGreen()
+            {
+                document.getElementById('ans').style.backgroundColor = 'green';
+                document.getElementById('div').innerHTML ='Correct!';
+            }
+            function checkans()
+            {
+                var ans = document.getElementById('ans2').value;
+                if (ans == '2012')
+                {
+                    document.getElementById('ans2').style.backgroundColor = 'green';
+                    document.getElementById('div2').innerHTML ='Correct!';
+                }
+                else
+                {
+                    document.getElementById('ans2').style.backgroundColor = 'red';
+                    document.getElementById('div2').innerHTML ='Incorrect';
+                }
+
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Who is the father of Computers?</h3>
+                <div id = 'div'></div>
+
+                <button id ='but1' onclick = 'changeColor(event)'>James Gosling</button>
+                <button id ='ans' onclick = 'changeColorGreen()'>Charles Babbage</button>
+                <button id ='but2' onclick = 'changeColor(event)'>Dennis Ritchie</button>
+                <button id ='but3' onclick = 'changeColor(event)'>Bjarne Stroustrup</button>
+
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In which year CS50x's first lecture was taught?</h3>
+                <div id = "div2"></div>
+
+                <input  id = "ans2">
+                <button id = "submit" onclick = 'checkans()'>Submit</button>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>
